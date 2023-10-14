@@ -1,20 +1,26 @@
-let url = require('url')
-let http = require('http')
+// let url = require('url')
+// let http = require('http')
 let cors = require('cors')
 let express = require('express')
 const bodyParser = require('body-parser')
+const userRoutes = require('./usersRoutes.js')
 
 
 
 const app = express()
 //user cors for every api
-// app.use(cors())
+app.use(cors())
 
 //parse data to get data with body-parser
 app.use(bodyParser.json())
 
 //or with express
 // app.use(express.json({ extended: false }))
+
+//این ای پی ای قسمت ثابت تمامی ای پی ای ها هست
+app.use('/api/users', userRoutes)
+// app.use('/api/products', productsRoutes)
+// app.use('/api/article', articleRoutes)
 
 
 
@@ -85,21 +91,21 @@ let db = {
 // })
 
 
-app.post('/api/new-user', (req, res) => {
-    console.log(req.body);
-    let newUserInfoObject = req.body
-    db.users.push(newUserInfoObject)
-    res.send(`New User Created ==> all users ${JSON.stringify(db.users)}`)
-})
+// app.post('/api/new-user', (req, res) => {
+//     console.log(req.body);
+//     let newUserInfoObject = req.body
+//     db.users.push(newUserInfoObject)
+//     res.send(`New User Created ==> all users ${JSON.stringify(db.users)}`)
+// })
 
 
 
 
 //use cors in one api 
-app.get('/api/teachers', cors(), (req, res) => {
-    console.log(req.params);
-    res.send(`Teachers showed`)
-})
+// app.get('/api/teachers', cors(), (req, res) => {
+//     console.log(req.params);
+//     res.send(`Teachers showed`)
+// })
 
 
 
