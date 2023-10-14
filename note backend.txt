@@ -113,7 +113,7 @@ we will create a htmla page and then get data from api and show it in dom.
 
 we can not test api (delete and post and put) in browser
 
-================body parser========================
+================body parser  to convert data========================
 npm i body-parser
 
 this is a package to parse data
@@ -123,7 +123,10 @@ app.use(bodyParser.json())
 //or with express
 // app.use(express.json({ extended: false }))
 
- 
+ ======================cors package ======================
+install :
+ npm i cors
+برای گرفتن باگ پروژه
 
 
 
