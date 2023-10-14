@@ -1,12 +1,18 @@
 let url = require('url')
 let http = require('http')
+let cors = require('cors')
 let express = require('express')
 const bodyParser = require('body-parser')
 
+
+
 const app = express()
+//user cors for every api
+// app.use(cors())
 
 //parse data to get data with body-parser
 app.use(bodyParser.json())
+
 //or with express
 // app.use(express.json({ extended: false }))
 
@@ -87,6 +93,18 @@ app.post('/api/new-user', (req, res) => {
 })
 
 
+
+
+//use cors in one api 
+app.get('/api/teachers', cors(), (req, res) => {
+    console.log(req.params);
+    res.send(`Teachers showed`)
+})
+
+
+
+
+
 app.listen(3000, () => {
     console.log('server run on port 3000');
 })
@@ -120,8 +138,6 @@ app.listen(3000, () => {
 
 
 // }).listen(3000)
-
-
 
 
 
