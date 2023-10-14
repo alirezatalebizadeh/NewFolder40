@@ -12,7 +12,6 @@ let btnSubmit = document.querySelector('.btnSubmit')
 
 myForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(passwordinput, userNameinput, passwordinput);
 
     let newUserInfoObject = {
         name: userNameinput.value,
@@ -29,9 +28,6 @@ myForm.addEventListener('submit', (e) => {
     })
         .then(res => res.text())
         .then(data => console.log(data))
-
-
-    console.log('submited', newUserInfoObject);
 })
 
 
