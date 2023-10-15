@@ -24,6 +24,13 @@ myForm.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(newUser)
     })
-        .then(res => res.text())
-        .then(data => console.log(data))
+        .then(res => {
+            if (res.status === 200) {
+                alert('you register in site successfully')
+            } else {
+                alert('you can not register')
+            }
+        })
+
+
 })
