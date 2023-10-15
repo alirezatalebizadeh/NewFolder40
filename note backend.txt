@@ -133,13 +133,16 @@ install :
 
 برای هر دسته از اطلاعات وب سایت باید یک route مشخص کنیم.
 
+================query in db================
+دستوراتی که به دیتابیس میدیم برای عملیات کراد
 
+تمامی عملیات رو در دیتابیس و خود node js به کمک همین دستورات انجام میدیم.
+go to sql in navbar and select insert or update or ... to do 
 
-
-
-
-
-
+===============connect to my sql db================
+install mysql package:
+npm i mysql
+ 
 
 
 
