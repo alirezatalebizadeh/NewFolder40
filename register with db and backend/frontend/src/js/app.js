@@ -5,7 +5,7 @@ let passwordInput = document.querySelector('.passwordInput');
 let myForm = document.querySelector('.myForm');
 
 
-
+//! register user
 myForm.addEventListener('submit', (event) => {
 
     event.preventDefault()
@@ -17,7 +17,7 @@ myForm.addEventListener('submit', (event) => {
     }
 
 
-    fetch('http://localhost:3000/api/users', {
+    fetch('http://localhost:3000/api/users/new-user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -27,10 +27,21 @@ myForm.addEventListener('submit', (event) => {
         .then(res => {
             if (res.status === 200) {
                 alert('you register in site successfully')
+                firstnameInput.value = ''
+                lastnameInput.value = ''
+                passwordInput.value = ''
+
+
             } else {
                 alert('you can not register')
             }
+            return res.text()
+        }).then((data) => {
+            console.log(data);
         })
 
 
 })
+
+
+

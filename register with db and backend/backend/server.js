@@ -14,5 +14,6 @@ app.use('/api/users', usersRoutes)
 // console.log(date);
 
 app.listen(3000,()=>{
-    console.log('server created');
+    console.log('server running in port 3000');
 })
+
