@@ -8,7 +8,6 @@ const userRoutes = express.Router()
 userRoutes.post('/new-user', (req, res) => {
     const body = req.body
     // console.log(body);
-    //!connect to db
 
     console.log('you connect to db successfully');
     let date = new Date().toLocaleDateString('fa-IR')
@@ -33,7 +32,7 @@ userRoutes.post('/new-user', (req, res) => {
 userRoutes.get('/all', (req, res) => {
     console.log('you connect to db successfully');
 
-    //! create user and add to db
+    //! select allUser
     let getAllUsersQuery = `SELECT * FROM users`
 
     usersDb.query(getAllUsersQuery, (error, result) => {
@@ -55,7 +54,7 @@ userRoutes.delete('/remove/:userID', (req, res) => {
 
     console.log('you connect to db successfully', userID);
 
-    //! create user and add to db
+    //! delete user
     let deleteUserQuery = `DELETE FROM users WHERE id = ${userID}`
 
     usersDb.query(deleteUserQuery, (error, result) => {
@@ -69,4 +68,38 @@ userRoutes.delete('/remove/:userID', (req, res) => {
         }
     })
 })
+
+
+//! remove user
+userRoutes.put('/edit/:userID', (req, res) => {
+    let userID = req.params.userID
+
+    let body = req.body
+
+    // console.log('you connect to db successfully', userID, body);
+
+    //! update user and add to db
+    let updateUserQuery = `UPDATE users SET firstname="${body.firstname}",lastname="${body.lastname}",password= "${body.password}" WHERE id = "${userID}"`
+
+    usersDb.query(updateUserQuery, (error, result) => {
+
+        if (error) {
+            console.log('we can"t update your user ', error);
+            res.send(null)
+        } else {
+            res.send(`one user updated successfully :==> ${JSON.stringify(result)}`)
+            console.log('one user updated successfully');
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
 module.exports = userRoutes
