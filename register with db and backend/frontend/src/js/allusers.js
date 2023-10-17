@@ -56,12 +56,13 @@ function removeUser(id) {
     closeModal()
 }
 
+//! close delete modal
 function closeModal() {
     document.querySelector('.myModal').classList.remove('show')
     document.querySelector('.myModal').style.display = 'none'
     location.href = './allUsers.html'
 }
-
+//! close edit modal 
 function closeModalEdit() {
     document.querySelector('.editModal').classList.remove('show')
     document.querySelector('.editModal').style.display = 'none'
@@ -69,7 +70,7 @@ function closeModalEdit() {
 }
 
 
-
+//! fill inputs in modal with user data
 function getUserIdAnsShowData(id) {
     userID = id;
     let findUser = usersInfo.filter(user => user.id == userID)
@@ -83,6 +84,7 @@ function getUserIdAnsShowData(id) {
 }
 
 
+//! update user
 function updateUser() {
 
     let updateInfo = {
@@ -106,8 +108,6 @@ function updateUser() {
 
 
 btnUpdate.addEventListener('click', updateUser)
-
-
 
 
 btnDelete.addEventListener('click', () => {
